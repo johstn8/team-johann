@@ -63,20 +63,23 @@
   .btn{border:none; cursor:pointer; padding:14px 18px; border-radius:12px; font-weight:600; box-shadow:var(--shadow); min-height:44px; display:inline-flex; align-items:center; justify-content:center; text-align:center}
   .btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   .btn-accent{background:var(--accent); color:white; transition:background .2s ease, transform .2s ease}
-  .btn-accent:hover{background:rgba(201,64,121,.92); color:white}
+  .btn-accent:hover{background:#f06292; color:white}
   .btn-accent:active{transform:translateY(1px)}
   .btn-ghost{background:#fff; color:var(--text); border:1px solid var(--border)}
 
   .strip{padding:26px 0; background:var(--bg)}
   .grid{display:grid; gap:18px}
   .grid.cols-3{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+  .goals-grid{grid-template-columns:repeat(3, minmax(0, 1fr))}
   .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px}
-  .card p{margin:0; color:var(--muted)}
+  .card h3{margin:0 0 8px; font-size:1.1rem}
+  .card p{margin:0; color:var(--muted); font-size:.98rem; line-height:1.45}
 
-  .goal-card{cursor:pointer; text-align:left; display:flex; flex-direction:column; gap:10px; transition:transform .2s ease, box-shadow .2s ease}
+  .goal-card{cursor:pointer; text-align:left; display:flex; flex-direction:column; gap:12px; transition:transform .2s ease, box-shadow .2s ease; font:inherit; color:inherit}
   .goal-card:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   .goal-card:hover{box-shadow:0 14px 26px rgba(0,0,0,.12); transform:translateY(-2px)}
+  .goal-card h3{font-size:1.1rem}
+  .goal-card p{font-size:.98rem}
 
   .goal-overlay{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(15,23,42,.55); z-index:50}
   .goal-overlay[hidden]{display:none}
@@ -86,6 +89,7 @@
   .goal-overlay__close:focus-visible{outline:2px solid var(--accent)}
   .goal-overlay__body h2{margin-top:0}
   .goal-overlay__body .grid{margin-top:20px}
+  .goal-detail-grid{grid-template-columns:repeat(3, minmax(0, 1fr))}
 
   .team-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
   .team-card p{margin:0; font-size:1rem}
@@ -133,6 +137,16 @@
     .gallery{grid-template-columns: repeat(2, 1fr)}
   }
 
+  @media (max-width: 900px){
+    .goals-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+    .goal-detail-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+  }
+
+  @media (max-width: 600px){
+    .goals-grid{grid-template-columns:1fr}
+    .goal-detail-grid{grid-template-columns:1fr}
+  }
+
   @media (max-width: 420px){
     .brand-copy span{font-size:clamp(20px, 8vw, 28px)}
     .brand-mark{height:42px; width:42px; font-size:1rem}
@@ -156,11 +170,11 @@
           <button class="nav-toggle" aria-controls="navlinks" aria-expanded="false" aria-label="Menü öffnen">☰ Menü</button>
         </div>
         <div id="navlinks" class="navlinks">
-          <a href="#ziele">Ziele</a>
+          <a href="#ziele" data-goal="feste">Partys &amp; Events</a>
+          <a href="#ziele" data-goal="sport">Sportturniere</a>
           <a href="#ziele" data-goal="lk">LK Börse</a>
           <a href="#ziele" data-goal="konferenz">Schulkonferenz</a>
           <a href="#ziele" data-goal="hygiene">Hygieneartikel</a>
-          <a href="#ziele" data-goal="sport">Sportturniere</a>
           <a href="#mitmachen" class="btn btn-accent" style="padding:10px 18px">Mitmachen</a>
         </div>
       </nav>
@@ -175,7 +189,7 @@
           <h1>Gemeinsam HCG gestalten – <span style="color:var(--accent)">Team Johann</span></h1>
           <p class="lead">Liebe Mitschülerinnen und Mitschüler, unsere Schule hat enormes Potenzial. Wir wollen Feste stärken, Orientierung bei der LK‑Wahl geben, Transparenz in der Schulkonferenz schaffen, Hygieneartikel bereitstellen und Sportturniere fortführen. Eure Ideen zählen!</p>
           <div class="cta">
-            <a class="btn btn-accent" href="#mitmachen">Umfrage ausfüllen</a>
+            <a class="btn btn-accent" href="https://forms.office.com/e/9GbTvHWwuf" target="_blank" rel="noopener">Umfrage ausfüllen</a>
           </div>
         </div>
         <figure class="hero-media" aria-label="Hans-Carossa-Gymnasium">
@@ -187,7 +201,7 @@
     <section class="section" id="ziele">
       <div class="container">
         <h2>Unsere wichtigsten Ziele</h2>
-        <div class="grid cols-3">
+        <div class="grid goals-grid">
           <button class="card goal-card" type="button" data-goal="feste">
             <h3>Feste &amp; Partys</h3>
             <p>Gemeinsam feiern und zusätzliche Events auf die Beine stellen.</p>
@@ -242,14 +256,26 @@
 
   <template data-goal-template="feste">
     <h2>Feste &amp; Partys</h2>
-    <p>Wir möchten mit dem Stadtteilzentrum Kladow (YOLO) und engagierten Klassenräten enger zusammenarbeiten, um <strong>zusätzliche Partys</strong> für die Mittel- und Oberstufe zu ermöglichen.</p>
-    <p>Beim großen Jubiläumsfest wollen wir frühzeitig Feedback einsammeln, damit Deko, Musik und Aktivitäten wirklich euren Wünschen entsprechen. Dazu planen wir eine offene Ideenrunde und transparente Budgets.</p>
+    <div class="grid goal-detail-grid">
+      <article class="card">
+        <h3>Mehr Events für alle</h3>
+        <p>Wir arbeiten mit dem Stadtteilzentrum Kladow (YOLO) und engagierten Klassenräten zusammen, um zusätzliche Partys für Mittel- und Oberstufe auf die Beine zu stellen.</p>
+      </article>
+      <article class="card">
+        <h3>Frühes Feedback</h3>
+        <p>Beim großen Jubiläumsfest sammeln wir eure Ideen rechtzeitig – von der Playlist bis zur Deko – damit es wirklich euer Fest wird.</p>
+      </article>
+      <article class="card">
+        <h3>Transparente Budgets</h3>
+        <p>Wir legen offen, wie viel Budget zur Verfügung steht und wofür wir es nutzen, damit ihr jederzeit nachverfolgen könnt, was mit euren Vorschlägen passiert.</p>
+      </article>
+    </div>
   </template>
 
   <template data-goal-template="lk">
     <h2>LK Börse</h2>
     <p>Mit einer erweiterten LK-Börse möchten wir Entscheidungen zur Kurswahl leichter machen.</p>
-    <div class="grid cols-3">
+    <div class="grid goal-detail-grid">
       <article class="card">
         <h3>LK‑Infomarkt</h3>
         <p>Panels mit Oberstufenschülerinnen und -schülern beantworten eure Fragen zu Workload, Prüfungen und Lernmaterialien.</p>
@@ -268,7 +294,7 @@
   <template data-goal-template="konferenz">
     <h2>Schulkonferenz transparent machen</h2>
     <p>Vier Schülerinnen und Schüler vertreten euch in der Schulkonferenz – und wir möchten ihre Arbeit sichtbar machen.</p>
-    <div class="grid cols-3">
+    <div class="grid goal-detail-grid">
       <article class="card">
         <h3>Vertretung</h3>
         <p>Wir koordinieren uns mit allen Delegierten, damit eure Perspektive konsequent eingebracht wird.</p>
@@ -286,20 +312,30 @@
 
   <template data-goal-template="hygiene">
     <h2>Hygieneartikel auf Mädchentoiletten</h2>
-    <div class="kpis" aria-label="Ziele in Zahlen">
-      <div class="kpi"><div>Aktuell verfügbare Boxen</div><b>1</b><div><small>(oft leer)</small></div></div>
-      <div class="kpi"><div>Ziel pro Etage</div><b>≥ 1</b><div><small>verlässlich aufgefüllt</small></div></div>
-      <div class="kpi"><div>Monatsbudget</div><b>≈ 40 €</b><div><small>über die Spandauer Jugendjury und den Förderverein</small></div></div>
-    </div>
-    <div class="card" style="margin-top:18px">
-      <p style="margin:0">Wir koordinieren die Aufstellung und Auffüllung gemeinsam mit dem Sozialteam. Die Finanzierung sichern wir über die Spandauer Jugendjury und den Förderverein. Meldet euch gern, wenn etwas fehlt – wir kümmern uns kurzfristig darum.</p>
+    <div class="grid goal-detail-grid">
+      <article class="card">
+        <h3>Boxen auffüllen</h3>
+        <p>Aktuell steht nur eine Box und sie ist oft leer. Wir organisieren feste Auffüllpläne, damit jederzeit Artikel verfügbar sind.</p>
+      </article>
+      <article class="card">
+        <h3>Mindestens eine pro Etage</h3>
+        <p>Unser Ziel: Auf jeder Etage befindet sich verlässlich mindestens eine Box mit Hygieneartikeln für Schülerinnen.</p>
+      </article>
+      <article class="card">
+        <h3>Finanzierung sichern</h3>
+        <p>Über die Spandauer Jugendjury und den Förderverein stellen wir ein Budget von rund 40 € pro Monat bereit.</p>
+      </article>
+      <article class="card">
+        <h3>Kurze Wege</h3>
+        <p>Wir stimmen uns eng mit dem Sozialteam ab und reagieren schnell auf Meldungen, falls irgendwo etwas fehlt.</p>
+      </article>
     </div>
   </template>
 
   <template data-goal-template="sport">
     <h2>Sportturniere</h2>
     <p>Sport lebt von Fairness und Spaß. Wir bauen auf erfolgreichen Turnieren auf und entwickeln sie mit euch weiter.</p>
-    <div class="grid cols-3">
+    <div class="grid goal-detail-grid">
       <article class="card"><h3>Planung</h3><p>Rechtzeitig kommunizierte Termine, klare Regeln und Schieds-Guides sorgen für Orientierung.</p></article>
       <article class="card"><h3>Teams</h3><p>Ausgewogene Gruppen, Anmelde-Slots und Nachrücklisten halten die Turniere spannend.</p></article>
       <article class="card"><h3>Feedback</h3><p>Nach jedem Turnier fragen wir euch nach Verbesserungswünschen und setzen sie um.</p></article>
@@ -308,12 +344,20 @@
 
   <template data-goal-template="mitsprache">
     <h2>Mitsprache stärken</h2>
-    <p>Wir möchten zuhören, bevor Entscheidungen fallen. Deshalb setzen wir auf schnelle, unkomplizierte Wege für euer Feedback.</p>
-    <ul>
-      <li>Regelmäßige Kurz-Umfragen zu aktuellen Themen.</li>
-      <li>Sprechzeiten in den Pausen und digitale Sprechstunden auf Teams.</li>
-      <li>Transparente Rückmeldungen darüber, was mit euren Ideen passiert.</li>
-    </ul>
+    <div class="grid goal-detail-grid">
+      <article class="card">
+        <h3>Schnelle Umfragen</h3>
+        <p>Wir holen regelmäßig euer Feedback zu aktuellen Themen ein, bevor Entscheidungen fallen.</p>
+      </article>
+      <article class="card">
+        <h3>Direkte Sprechzeiten</h3>
+        <p>In den Pausen und online auf Teams stehen wir für Gespräche bereit – ohne lange Wege.</p>
+      </article>
+      <article class="card">
+        <h3>Rückmeldung garantiert</h3>
+        <p>Ihr erfahrt transparent, was mit euren Vorschlägen passiert und welche Schritte folgen.</p>
+      </article>
+    </div>
   </template>
 
   <div class="goal-overlay" data-goal-overlay hidden aria-hidden="true">
