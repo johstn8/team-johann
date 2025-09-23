@@ -73,6 +73,12 @@
 
   .team-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
   .team-card p{margin:0; font-size:1rem}
+  .team-showcase{display:grid; gap:20px; grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); align-items:start}
+  .team-grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr))}
+  .profile-card{background:var(--bg-alt); border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:0 10px 18px rgba(201,64,121,.08)}
+  .profile-card h3{margin:12px 0 6px; font-size:1.05rem}
+  .profile-card p{margin:0; font-size:.95rem; color:var(--muted)}
+  .profile-icon{height:44px; width:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.35rem; background:#fff; border:1px solid rgba(201,64,121,.25); box-shadow:var(--shadow)}
   .team-list{margin:16px 0 0; padding-left:20px; color:var(--muted)}
   .team-list li+li{margin-top:8px}
 
@@ -112,6 +118,7 @@
     .hero{padding:40px 0 22px}
     .hero-grid{grid-template-columns:1fr}
     .hero-media{display:none}
+    .team-showcase{grid-template-columns:1fr}
     .gallery{grid-template-columns: repeat(2, 1fr)}
   }
 
@@ -133,7 +140,7 @@
           </div>
           <div class="brand-copy">
             <span>Team Johann</span>
-            <small>Wahl des SV-Teams 2024/25</small>
+            <small>Wahl des SV-Teams 2025/26</small>
           </div>
           <button class="nav-toggle" aria-controls="navlinks" aria-expanded="false" aria-label="Menü öffnen">☰ Menü</button>
         </div>
@@ -172,14 +179,38 @@
     <section class="section" id="team">
       <div class="container">
         <h2>Das sind wir – Team Johann</h2>
-        <p class="desc">Wir kombinieren Erfahrung aus Mittel- und Oberstufe, damit eure Ideen am HCG zügig umgesetzt werden.</p>
-        <div class="team-card">
-          <p><strong>Johann, Lotta, Jasmin und Julian</strong> koordinieren Projekte, bringen Anliegen in die Gremien und halten euch über Fortschritte auf dem Laufenden.</p>
-          <ul class="team-list">
-            <li>Feste und Partys gemeinsam planen – von YOLO bis zum Jubiläum.</li>
-            <li>LK-Infomarkt und Materialpool aufbauen, damit eure Kurswahl leichter fällt.</li>
-            <li>Schulkonferenz-Updates transparent teilen und Feedback direkt aufnehmen.</li>
-          </ul>
+        <p class="desc">Wir kombinieren Erfahrung aus Mittel- und Oberstufe, damit wir eure Ideen am HCG gemeinsam voranbringen können.</p>
+        <div class="team-showcase">
+          <div class="team-card">
+            <p><strong>Johann, Lotta, Jasmin und Julian</strong> möchten als Schülersprecherteam Projekte strukturieren, Anliegen in die Gremien tragen und transparent berichten.</p>
+            <ul class="team-list">
+              <li>Feste und Partys gemeinsam mit euch planen – von YOLO bis zum Jubiläum.</li>
+              <li>LK-Infomarkt und Materialpool aufbauen, damit eure Kurswahl leichter fällt.</li>
+              <li>Schulkonferenz-Updates transparent teilen und Feedback direkt aufnehmen.</li>
+            </ul>
+          </div>
+          <div class="team-grid" aria-label="Teammitglieder">
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true">🧭</div>
+              <h3>Johann</h3>
+              <p>Oberstufe · behält Termine und Abläufe im Blick.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true">🎉</div>
+              <h3>Lotta</h3>
+              <p>Mittelstufe · sorgt für Stimmung und kreative Ideen.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true">💡</div>
+              <h3>Jasmin</h3>
+              <p>Mittelstufe · fragt nach, hört zu und sammelt Feedback.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true">🤝</div>
+              <h3>Julian</h3>
+              <p>Oberstufe · moderiert Gespräche und vernetzt AGs.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -187,27 +218,27 @@
     <section class="section" id="ziele">
       <div class="container">
         <h2>Unsere wichtigsten Ziele</h2>
-        <p class="desc">Konkret, machbar und transparent – so setzen wir unsere Vorhaben um.</p>
+        <p class="desc">Konkret, machbar und transparent – so möchten wir unsere Vorhaben umsetzen.</p>
         <div class="grid cols-3">
           <article class="card">
             <h3>Feste & Partys</h3>
-            <p>Mit Unterstützung des Stadtteilzentrums Kladow (YOLO) organisieren wir eine zusätzliche Party und helfen beim großen Jubiläumsfest mit, damit es genau euren Wünschen entspricht.</p>
+            <p>Mit Unterstützung des Stadtteilzentrums Kladow (YOLO) möchten wir eine zusätzliche Party organisieren und beim großen Jubiläumsfest mitwirken, damit es genau euren Wünschen entspricht.</p>
           </article>
           <article class="card">
             <h3>Transparente LK‑Wahl</h3>
-            <p>Wir erweitern die LK‑Börse um einen <b>LK‑Infomarkt</b> (Fragen direkt an Oberstufenschülerinnen und Schüler) und einen <b>LK‑Materialpool</b> (Beispiele für Aufgaben & Klausuren).</p>
+            <p>Wir möchten die LK‑Börse um einen <b>LK‑Infomarkt</b> (Fragen direkt an Oberstufenschülerinnen und Schüler) und einen <b>LK‑Materialpool</b> (Beispiele für Aufgaben & Klausuren) erweitern.</p>
           </article>
           <article class="card">
-            <h3>Schulkonferenz erklären</h3>
-            <p>Vier Schülerinnen und Schüler vertreten euch in der Schulkonferenz. Wir berichten per Teams‑Post, holen Feedback ein und tragen eure Anliegen gezielt ins Gremium.</p>
+            <h3>Über die Schulkonferenz berichten</h3>
+            <p>Vier Schülerinnen und Schüler vertreten euch in der Schulkonferenz. Wir möchten nach jeder Sitzung per Teams‑Post berichten, Feedback einsammeln und eure Anliegen gezielt einbringen.</p>
           </article>
           <article class="card">
             <h3>Hygieneartikel verfügbar</h3>
-            <p>Aktuell gibt es für ~500 Schülerinnen und Schüler nur eine ständig leere Box. Unser Ziel: <b>pro Etage mindestens eine Box</b> – finanziert mit ca. 40 € / Monat über die Spandauer Jugendjury.</p>
+            <p>Aktuell gibt es für ~500 Schülerinnen nur eine ständig leere Box. Unser Ziel: <b>pro Etage mindestens eine Box</b> – finanziert mit ca. 40 € pro Monat über die Spandauer Jugendjury.</p>
           </article>
           <article class="card">
             <h3>Sportturniere fortführen</h3>
-            <p>In enger Abstimmung mit der Fachbereichsleitung Sport (Kontakt: Frau Viol) setzen wir auf faire Turniere und klare Rahmenbedingungen.</p>
+            <p>In enger Abstimmung mit der Fachbereichsleitung Sport (Frau Viohl) möchten wir faire Turniere mit klaren Rahmenbedingungen gestalten.</p>
           </article>
           <article class="card">
             <h3>Mitsprache stärken</h3>
@@ -251,11 +282,11 @@
           </article>
           <article class="card">
             <h3>Berichten</h3>
-            <p>Nach jeder Sitzung informieren wir euch – abgestimmt mit allen Beteiligten – per Teams‑Post über Beschlüsse und nächste Schritte.</p>
+            <p>Nach jeder Sitzung möchten wir euch – abgestimmt mit allen Beteiligten – per Teams‑Post über Beschlüsse und nächste Schritte informieren.</p>
           </article>
           <article class="card">
             <h3>Rückkanal</h3>
-            <p>Vorab sammeln wir eure Anliegen über Umfragen & Sprechzeiten. So fließen eure Ideen unmittelbar in die Sitzung ein.</p>
+            <p>Vorab planen wir, eure Anliegen über Umfragen und Sprechzeiten zu sammeln, damit eure Ideen unmittelbar in die Sitzung einfließen.</p>
           </article>
         </div>
       </div>
@@ -270,7 +301,7 @@
           <div class="kpi"><div>Monatsbudget</div><b>≈ 40 €</b><div><small>über Spandauer Jugendjury</small></div></div>
         </div>
         <div class="card" style="margin-top:14px">
-          <p style="margin:0">Wir koordinieren die Aufstellung und verlässliche Auffüllung zusammen mit dem Sozialteam. Meldet euch, wenn etwas fehlt – wir kümmern uns sofort.</p>
+          <p style="margin:0">Wir möchten die Aufstellung und verlässliche Auffüllung gemeinsam mit dem Sozialteam koordinieren. Meldet euch gern, wenn etwas fehlt – das möchten wir schnell zusammen lösen.</p>
         </div>
       </div>
     </section>
@@ -278,11 +309,11 @@
     <section class="section" id="sport">
       <div class="container">
         <h2>Sportturniere – fair & spaßig</h2>
-        <p class="desc">Gemeinsam mit der Fachschaft Sport bauen wir auf bewährten Formaten auf und entwickeln sie weiter.</p>
+        <p class="desc">Gemeinsam mit der Fachschaft Sport möchten wir auf bewährten Formaten aufbauen und sie weiterentwickeln.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>Planung</h3><p>Rechtzeitig kommunizierte Termine, klare Regeln und Schieds‑Guides.</p></article>
-          <article class="card"><h3>Teams</h3><p>Ausgewogene Gruppen, Anmelde‑Slots und Nachrücklisten für volle Felder.</p></article>
-          <article class="card"><h3>Feedback</h3><p>Kurze Umfragen nach jedem Turnier – wir verbessern, was euch wichtig ist.</p></article>
+          <article class="card"><h3>Planung</h3><p>Geplant: rechtzeitig kommunizierte Termine, klare Regeln und Schieds‑Guides.</p></article>
+          <article class="card"><h3>Teams</h3><p>Geplant: ausgewogene Gruppen, Anmelde‑Slots und Nachrücklisten für volle Felder.</p></article>
+          <article class="card"><h3>Feedback</h3><p>Geplant: kurze Umfragen nach jedem Turnier – wir verbessern, was euch wichtig ist.</p></article>
         </div>
       </div>
     </section>
@@ -314,15 +345,15 @@
         <h2>FAQ</h2>
         <details>
           <summary>Wie wird über die Schulkonferenz berichtet?</summary>
-          <p>Per Teams‑Post mit kurzer Zusammenfassung der Beschlüsse – abgestimmt mit allen beteiligten Gremien.</p>
+          <p>Geplant sind Teams‑Posts mit kurzen Zusammenfassungen der Beschlüsse – abgestimmt mit allen beteiligten Gremien.</p>
         </details>
         <details>
           <summary>Wie wird der LK‑Materialpool organisiert?</summary>
-          <p>Material upload über betreute Ordner; Freigabe erst nach Sichtung durch Fachlehrkräfte, anschließend zentraler Zugriff.</p>
+          <p>Vorgesehen ist ein Material-Upload über betreute Ordner; Freigabe erst nach Sichtung durch Fachlehrkräfte, anschließend zentraler Zugriff.</p>
         </details>
         <details>
           <summary>Wer füllt die Hygieneartikel‑Boxen nach?</summary>
-          <p>Koordination durch Team Johann in Zusammenarbeit mit dem Sozialteam; Finanzierung über die Spandauer Jugendjury.</p>
+          <p>Geplant ist eine Koordination durch Team Johann in Zusammenarbeit mit dem Sozialteam; die Finanzierung soll über die Spandauer Jugendjury laufen.</p>
         </details>
       </div>
     </section>
