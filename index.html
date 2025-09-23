@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Team Johann – Schulsprecherwahl am HCG</title>
+  <title>Team Johann – Wahl des SV-Teams am HCG</title>
   <meta name="description" content="Team Johann – Unsere Ziele für das Hans‑Carossa‑Gymnasium: Feste, LK‑Infomarkt & Materialpool, Transparenz in der Schulkonferenz, Hygieneartikel, Sportturniere, Mitmachen!" />
   <style>
   :root{
@@ -33,7 +33,8 @@
   }
   nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
   .brand{display:flex; align-items:center; gap:12px}
-  .brand-mark{height:46px; width:46px; border-radius:14px; background:linear-gradient(135deg, var(--accent), #ff7aa8); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:1.15rem; box-shadow:var(--shadow)}
+  .brand-mark{height:46px; width:46px; border-radius:14px; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:6px; box-shadow:var(--shadow)}
+  .brand-mark svg{height:100%; width:100%}
   .brand-copy span{display:block; font-size:clamp(20px, 4vw, 30px); font-weight:700; line-height:1}
   .brand-copy small{display:block; margin-top:4px; font-size:.85rem; color:var(--muted); letter-spacing:.02em}
 
@@ -46,7 +47,7 @@
   .nav-toggle:focus-visible{outline:2px solid var(--accent)}
 
   .hero{padding:56px 0 36px; background:linear-gradient(180deg, rgba(201,64,121,.06), transparent)}
-  .hero-grid{display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 420px); gap:40px; align-items:center}
+  .hero-grid{display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 480px); gap:40px; align-items:center}
   .hero-text{max-width:620px}
   .hero-media{position:relative; border-radius:20px; overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.6)}
   .hero-media::after{content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(201,64,121,.18), transparent); pointer-events:none}
@@ -70,10 +71,10 @@
   .card h3{margin:0 0 8px}
   .card p{margin:0; color:var(--muted)}
 
-  .team-grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))}
-  .person{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px}
-  .person .avatar{height:56px; width:56px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; box-shadow:var(--shadow)}
-  .person small{color:var(--muted); font-weight:600; letter-spacing:.05em; text-transform:uppercase}
+  .team-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+  .team-card p{margin:0; font-size:1rem}
+  .team-list{margin:16px 0 0; padding-left:20px; color:var(--muted)}
+  .team-list li+li{margin-top:8px}
 
   .section{padding:42px 0; scroll-margin-top:80px}
   .section h2{font-size:clamp(22px, 3vw, 32px); margin:0 0 14px}
@@ -96,7 +97,7 @@
   @media (max-width: 1024px){
     nav{gap:10px}
     .hero{padding:48px 0 24px}
-    .hero-grid{grid-template-columns: minmax(0, 1fr) minmax(0, 360px)}
+    .hero-grid{grid-template-columns: minmax(0, 1fr) minmax(0, 400px)}
   }
 
   /* Mobile large */
@@ -125,10 +126,14 @@
     <div class="container">
       <nav>
         <div class="brand">
-          <div class="brand-mark" aria-hidden="true">TJ</div>
+          <div class="brand-mark" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true" focusable="false">
+              <path d="m64,48h-12c0-5.1-1.4-9.44-3.91-12.76.92-.16,1.89-.24,2.91-.24,8.02,0,13,4.98,13,13ZM13,32c4.32,0,7-2.68,7-7s-2.68-7-7-7-7,2.68-7,7,2.68,7,7,7Zm38,0c4.32,0,7-2.68,7-7s-2.68-7-7-7-7,2.68-7,7,2.68,7,7,7Zm-19-4c4.94,0,8-3.06,8-8s-3.06-8-8-8-8,3.06-8,8,3.06,8,8,8Zm0,4c-9.87,0-16,6.13-16,16h32c0-9.87-6.13-16-16-16ZM0,48h12c0-5.1,1.4-9.44,3.91-12.76-.92-.16-1.89-.24-2.91-.24-8.02,0-13,4.98-13,13Z" fill="#C94079" />
+            </svg>
+          </div>
           <div class="brand-copy">
             <span>Team Johann</span>
-            <small>Schüler*innensprecherwahl 2024/25</small>
+            <small>Wahl des SV-Teams 2024/25</small>
           </div>
           <button class="nav-toggle" aria-controls="navlinks" aria-expanded="false" aria-label="Menü öffnen">☰ Menü</button>
         </div>
@@ -150,7 +155,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <span class="badge"><i></i> Schulsprecherwahl</span>
+          <span class="badge"><i></i> Wahl des SV-Teams</span>
           <h1>Gemeinsam HCG gestalten – <span style="color:var(--accent)">Team Johann</span></h1>
           <p class="lead">Liebe Mitschülerinnen und Mitschüler, unsere Schule hat enormes Potenzial. Wir wollen Feste stärken, Orientierung bei der LK‑Wahl geben, Transparenz in der Schulkonferenz schaffen, Hygieneartikel bereitstellen und Sportturniere fortführen. Eure Ideen zählen!</p>
           <div class="cta">
@@ -167,32 +172,14 @@
     <section class="section" id="team">
       <div class="container">
         <h2>Das sind wir – Team Johann</h2>
-        <p class="desc">Wir bringen Erfahrung aus Unter-, Mittel- und Oberstufe zusammen, um eure Ideen an unserer Schule Wirklichkeit werden zu lassen.</p>
-        <div class="team-grid">
-          <article class="person">
-            <div class="avatar" aria-hidden="true">Jo</div>
-            <small>Johann</small>
-            <h3>Hauptschülersprecher in spe</h3>
-            <p>Ich möchte das große Potenzial des Hans-Carossa-Gymnasiums für euch nutzen: mit klaren Strukturen, verlässlicher Kommunikation und starken Projekten.</p>
-          </article>
-          <article class="person">
-            <div class="avatar" aria-hidden="true">Lo</div>
-            <small>Lotta · Q3</small>
-            <h3>Feste & Gemeinschaft</h3>
-            <p>Fünf Jahre HCG haben mir gezeigt, wie sehr Feste und Partys unser Schulleben prägen. Ich kümmere mich darum, dass es davon wieder mehr Highlights gibt.</p>
-          </article>
-          <article class="person">
-            <div class="avatar" aria-hidden="true">Ja</div>
-            <small>Jasmin · 10. Klasse</small>
-            <h3>YOLO & Events</h3>
-            <p>Ich engagiere mich beim Stadtteilzentrum Kladow und möchte YOLO sowie eine weitere Party für euch sichern – mit guter Planung und Unterstützung durch Team Johann.</p>
-          </article>
-          <article class="person">
-            <div class="avatar" aria-hidden="true">Ju</div>
-            <small>Julian · Q1</small>
-            <h3>LK-Wahl & Transparenz</h3>
-            <p>Mir ist wichtig, dass ihr eure Leistungskurse informiert wählen könnt. Dafür setze ich mich für den LK-Infomarkt, den Materialpool und transparente Schulkonferenzberichte ein.</p>
-          </article>
+        <p class="desc">Wir kombinieren Erfahrung aus Mittel- und Oberstufe, damit eure Ideen am HCG zügig umgesetzt werden.</p>
+        <div class="team-card">
+          <p><strong>Johann, Lotta, Jasmin und Julian</strong> koordinieren Projekte, bringen Anliegen in die Gremien und halten euch über Fortschritte auf dem Laufenden.</p>
+          <ul class="team-list">
+            <li>Feste und Partys gemeinsam planen – von YOLO bis zum Jubiläum.</li>
+            <li>LK-Infomarkt und Materialpool aufbauen, damit eure Kurswahl leichter fällt.</li>
+            <li>Schulkonferenz-Updates transparent teilen und Feedback direkt aufnehmen.</li>
+          </ul>
         </div>
       </div>
     </section>
