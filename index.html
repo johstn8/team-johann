@@ -83,7 +83,7 @@
 
   .goal-card__header{display:flex; align-items:center; gap:12px}
   .goal-card__icon{flex:0 0 auto; width:46px; height:46px; border-radius:14px; background:var(--bg-alt); display:flex; align-items:center; justify-content:center; box-shadow:inset 0 0 0 1px var(--border); color:var(--accent)}
-  .goal-card__icon svg{width:26px; height:26px}
+  .goal-card__icon img{width:26px; height:26px; display:block}
 
   .goal-overlay{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(15,23,42,.55); z-index:50}
   .goal-overlay[hidden]{display:none}
@@ -209,12 +209,7 @@
           <button class="card goal-card" type="button" data-goal="feste">
             <div class="goal-card__header">
               <span class="goal-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                  <path d="M3.5 20.5l3.8-10.4 6.6 6.6-10.4 3.8z" fill="currentColor" opacity=".2" />
-                  <path d="M3.5 20.5l3.8-10.4 6.6 6.6-10.4 3.8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M15.5 5.5c.9-.7 2.2-.5 2.9.4.7.9.5 2.2-.4 2.9-.8.6-1.5.8-2 1.6-.3.4-.4 1-.3 1.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M17 3V2M20 4.5h1M18.5 1.5l.7-.7M19 7.5l.7.7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
-                </svg>
+                <img src="media/partys-und-events.png" alt="" />
               </span>
               <h3>Feste &amp; Partys</h3>
             </div>
@@ -223,12 +218,7 @@
           <button class="card goal-card" type="button" data-goal="lk">
             <div class="goal-card__header">
               <span class="goal-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                  <path d="M4 5h6.5a2.5 2.5 0 0 1 2.5 2.5V20a2.5 2.5 0 0 0-2.5-2.5H4V5z" fill="currentColor" opacity=".18" />
-                  <path d="M4 5h6.5A2.5 2.5 0 0 1 13 7.5V20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M13 20a2.5 2.5 0 0 1 2.5-2.5H20V5h-4.5A2.5 2.5 0 0 0 13 7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M9 11l1.7 1.7 2.8-2.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                <img src="media/lk-boerse.png" alt="" />
               </span>
               <h3>Transparente LK‑Wahl</h3>
             </div>
@@ -237,12 +227,7 @@
           <button class="card goal-card" type="button" data-goal="konferenz">
             <div class="goal-card__header">
               <span class="goal-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                  <path d="M4.5 4h11A2.5 2.5 0 0 1 18 6.5v4A2.5 2.5 0 0 1 15.5 13H10l-3.5 3.5V13H4.5A2.5 2.5 0 0 1 2 10.5v-4A2.5 2.5 0 0 1 4.5 4z" fill="currentColor" opacity=".18" />
-                  <path d="M4.5 4h11A2.5 2.5 0 0 1 18 6.5v4A2.5 2.5 0 0 1 15.5 13H10l-3.5 3.5V13H4.5A2.5 2.5 0 0 1 2 10.5v-4A2.5 2.5 0 0 1 4.5 4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M7 7.5h8M7 10h5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M16.5 15H19a2 2 0 0 0 2-2V9.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
+                <img src="media/schulkonferenz.png" alt="" />
               </span>
               <h3>Über die Schulkonferenz berichten</h3>
             </div>
@@ -251,11 +236,7 @@
           <button class="card goal-card" type="button" data-goal="hygiene">
             <div class="goal-card__header">
               <span class="goal-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                  <path d="M12 4.5s4.5 4.5 4.5 8a4.5 4.5 0 1 1-9 0c0-3.5 4.5-8 4.5-8z" fill="currentColor" opacity=".18" />
-                  <path d="M12 4.5s4.5 4.5 4.5 8a4.5 4.5 0 1 1-9 0c0-3.5 4.5-8 4.5-8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M17.5 6.5h2.5M19 5v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
+                <img src="media/hygieneartikel.png" alt="" />
               </span>
               <h3>Hygieneartikel</h3>
             </div>
@@ -264,14 +245,7 @@
           <button class="card goal-card" type="button" data-goal="sport">
             <div class="goal-card__header">
               <span class="goal-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                  <path d="M7 4h10v2a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4V4z" fill="currentColor" opacity=".18" />
-                  <path d="M7 4h10v2a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4V4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                  <path d="M9 20h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M10 18.5h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M9 10a5 5 0 0 1-5-5V4h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M15 10a5 5 0 0 0 5-5V4h-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                <img src="media/sportturniere.png" alt="" />
               </span>
               <h3>Sportturniere fortführen</h3>
             </div>
@@ -280,15 +254,7 @@
           <button class="card goal-card" type="button" data-goal="mitsprache">
             <div class="goal-card__header">
               <span class="goal-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                  <circle cx="7" cy="8" r="2.2" fill="currentColor" opacity=".2" />
-                  <circle cx="17" cy="8" r="2.2" fill="currentColor" opacity=".2" />
-                  <path d="M7 11.5c-2.2 0-4 1.8-4 4V17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M17 11.5c2.2 0 4 1.8 4 4V17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                  <path d="M12 5.5c-1.4 0-2.5 1.1-2.5 2.5S10.6 10.5 12 10.5s2.5-1.1 2.5-2.5S13.4 5.5 12 5.5z" fill="currentColor" opacity=".18" />
-                  <path d="M12 5.5c-1.4 0-2.5 1.1-2.5 2.5S10.6 10.5 12 10.5s2.5-1.1 2.5-2.5S13.4 5.5 12 5.5z" fill="none" stroke="currentColor" stroke-width="1.5" />
-                  <path d="M6 18.5c0-2.2 2.2-4 6-4s6 1.8 6 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
+                <img src="media/mitsprache.png" alt="" />
               </span>
               <h3>Mitsprache stärken</h3>
             </div>
