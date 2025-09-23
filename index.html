@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Team Johann – Wahl des SV-Teams am HCG</title>
+  <title>Team Johann</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='m64 48h-12c0-5.1-1.4-9.44-3.91-12.76.92-.16 1.89-.24 2.91-.24 8.02 0 13 4.98 13 13ZM13 32c4.32 0 7-2.68 7-7s-2.68-7-7-7-7 2.68-7 7 2.68 7 7 7Zm38 0c4.32 0 7-2.68 7-7s-2.68-7-7-7-7 2.68-7 7 2.68 7 7 7Zm-19-4c4.94 0 8-3.06 8-8s-3.06-8-8-8-8 3.06-8 8 3.06 8 8 8Zm0 4c-9.87 0-16 6.13-16 16h32c0-9.87-6.13-16-16-16ZM0 48h12c0-5.1 1.4-9.44 3.91-12.76-.92-.16-1.89-.24-2.91-.24-8.02 0-13 4.98-13 13Z' fill='%23C94079'/%3E%3C/svg%3E" />
   <meta name="description" content="Team Johann – Unsere Ziele für das Hans‑Carossa‑Gymnasium: Feste, LK‑Infomarkt & Materialpool, Transparenz in der Schulkonferenz, Hygieneartikel, Sportturniere, Mitmachen!" />
   <style>
   :root{
@@ -61,7 +62,9 @@
   /* Buttons: zentrierter Inhalt */
   .btn{border:none; cursor:pointer; padding:14px 18px; border-radius:12px; font-weight:600; box-shadow:var(--shadow); min-height:44px; display:inline-flex; align-items:center; justify-content:center; text-align:center}
   .btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-  .btn-accent{background:var(--accent); color:white}
+  .btn-accent{background:var(--accent); color:white; transition:background .2s ease, transform .2s ease}
+  .btn-accent:hover{background:rgba(201,64,121,.92); color:white}
+  .btn-accent:active{transform:translateY(1px)}
   .btn-ghost{background:#fff; color:var(--text); border:1px solid var(--border)}
 
   .strip{padding:26px 0; background:var(--bg)}
@@ -70,6 +73,19 @@
   .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
   .card h3{margin:0 0 8px}
   .card p{margin:0; color:var(--muted)}
+
+  .goal-card{cursor:pointer; text-align:left; display:flex; flex-direction:column; gap:10px; transition:transform .2s ease, box-shadow .2s ease}
+  .goal-card:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  .goal-card:hover{box-shadow:0 14px 26px rgba(0,0,0,.12); transform:translateY(-2px)}
+
+  .goal-overlay{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(15,23,42,.55); z-index:50}
+  .goal-overlay[hidden]{display:none}
+  .goal-overlay__card{position:relative; background:#fff; border-radius:20px; max-width:min(720px, 94vw); max-height:min(90vh, 780px); overflow-y:auto; padding:28px; box-shadow:0 24px 48px rgba(15,23,42,.22)}
+  .goal-overlay__close{position:absolute; top:16px; right:16px; border:none; background:rgba(15,23,42,.08); border-radius:999px; width:38px; height:38px; cursor:pointer; font-size:22px; line-height:1; display:flex; align-items:center; justify-content:center}
+  .goal-overlay__close:hover{background:rgba(15,23,42,.16)}
+  .goal-overlay__close:focus-visible{outline:2px solid var(--accent)}
+  .goal-overlay__body h2{margin-top:0}
+  .goal-overlay__body .grid{margin-top:20px}
 
   .team-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
   .team-card p{margin:0; font-size:1rem}
@@ -140,13 +156,11 @@
           <button class="nav-toggle" aria-controls="navlinks" aria-expanded="false" aria-label="Menü öffnen">☰ Menü</button>
         </div>
         <div id="navlinks" class="navlinks">
-          <a href="#team">Team</a>
           <a href="#ziele">Ziele</a>
-          <a href="#lk">Leistungskurse</a>
-          <a href="#konferenz">Schulkonferenz</a>
-          <a href="#hygiene">Hygiene</a>
-          <a href="#sport">Sport</a>
-          <a href="#faq">FAQ</a>
+          <a href="#ziele" data-goal="lk">LK Börse</a>
+          <a href="#ziele" data-goal="konferenz">Schulkonferenz</a>
+          <a href="#ziele" data-goal="hygiene">Hygieneartikel</a>
+          <a href="#ziele" data-goal="sport">Sportturniere</a>
           <a href="#mitmachen" class="btn btn-accent" style="padding:10px 18px">Mitmachen</a>
         </div>
       </nav>
@@ -162,7 +176,6 @@
           <p class="lead">Liebe Mitschülerinnen und Mitschüler, unsere Schule hat enormes Potenzial. Wir wollen Feste stärken, Orientierung bei der LK‑Wahl geben, Transparenz in der Schulkonferenz schaffen, Hygieneartikel bereitstellen und Sportturniere fortführen. Eure Ideen zählen!</p>
           <div class="cta">
             <a class="btn btn-accent" href="#mitmachen">Umfrage ausfüllen</a>
-            <a class="btn btn-ghost" href="#team">Team kennenlernen</a>
           </div>
         </div>
         <figure class="hero-media" aria-label="Hans-Carossa-Gymnasium">
@@ -171,122 +184,34 @@
       </div>
     </section>
 
-    <section class="section" id="team">
-      <div class="container">
-        <h2>Das sind wir – Team Johann</h2>
-        <p class="desc">Wir kombinieren Erfahrung aus Mittel- und Oberstufe, damit wir eure Ideen am HCG gemeinsam voranbringen können.</p>
-        <div class="team-showcase">
-          <div class="team-card">
-            <p><strong>Johann, Lotta, Jasmin und Julian</strong> möchten als Schülersprecherteam Projekte strukturieren, Anliegen in die Gremien tragen und transparent berichten.</p>
-            <ul class="team-list">
-              <li>Feste und Partys gemeinsam mit euch planen – von YOLO bis zum Jubiläum.</li>
-              <li>LK-Infomarkt und Materialpool aufbauen, damit eure Kurswahl leichter fällt.</li>
-              <li>Schulkonferenz-Updates transparent teilen und Feedback direkt aufnehmen.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="ziele">
       <div class="container">
         <h2>Unsere wichtigsten Ziele</h2>
-        <p class="desc">Konkret, machbar und transparent – so möchten wir unsere Vorhaben umsetzen.</p>
         <div class="grid cols-3">
-          <article class="card">
-            <h3>Feste & Partys</h3>
-            <p>Mit Unterstützung des Stadtteilzentrums Kladow (YOLO) möchten wir eine zusätzliche Party organisieren und beim großen Jubiläumsfest mitwirken, damit es genau euren Wünschen entspricht.</p>
-          </article>
-          <article class="card">
+          <button class="card goal-card" type="button" data-goal="feste">
+            <h3>Feste &amp; Partys</h3>
+            <p>Gemeinsam feiern und zusätzliche Events auf die Beine stellen.</p>
+          </button>
+          <button class="card goal-card" type="button" data-goal="lk">
             <h3>Transparente LK‑Wahl</h3>
-            <p>Wir möchten die LK‑Börse um einen <b>LK‑Infomarkt</b> (Fragen direkt an Oberstufenschülerinnen und Schüler) und einen <b>LK‑Materialpool</b> (Beispiele für Aufgaben & Klausuren) erweitern.</p>
-          </article>
-          <article class="card">
+            <p>Mehr Überblick durch LK‑Infomarkt und Materialpool.</p>
+          </button>
+          <button class="card goal-card" type="button" data-goal="konferenz">
             <h3>Über die Schulkonferenz berichten</h3>
-            <p>Vier Schülerinnen und Schüler vertreten euch in der Schulkonferenz. Wir möchten nach jeder Sitzung per Teams‑Post berichten, Feedback einsammeln und eure Anliegen gezielt einbringen.</p>
-          </article>
-          <article class="card">
+            <p>Regelmäßige Updates und klare Rückkanäle für euch.</p>
+          </button>
+          <button class="card goal-card" type="button" data-goal="hygiene">
             <h3>Hygieneartikel verfügbar</h3>
-            <p>Aktuell gibt es für ~500 Schülerinnen nur eine ständig leere Box. Unser Ziel: <b>pro Etage mindestens eine Box</b> – finanziert mit ca. 40 € pro Monat über die Spandauer Jugendjury.</p>
-          </article>
-          <article class="card">
+            <p>Verlässliche Versorgung auf allen Mädchentoiletten.</p>
+          </button>
+          <button class="card goal-card" type="button" data-goal="sport">
             <h3>Sportturniere fortführen</h3>
-            <p>In enger Abstimmung mit der Fachbereichsleitung Sport (Frau Viohl) möchten wir faire Turniere mit klaren Rahmenbedingungen gestalten.</p>
-          </article>
-          <article class="card">
+            <p>Faire Rahmenbedingungen und viel Teamgeist.</p>
+          </button>
+          <button class="card goal-card" type="button" data-goal="mitsprache">
             <h3>Mitsprache stärken</h3>
-            <p>Kurze Umfragen, Feedback‑Kanäle und Sprechzeiten – wir holen euch dort ab, wo ihr seid: im Gang, auf Teams oder über die Umfrage unten.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    
-
-    <section class="section" id="lk">
-      <div class="container">
-        <h2>Leistungskurswahl – klar & sicher</h2>
-        <p class="desc">Zwei Bausteine, die Orientierung geben.</p>
-        <div class="grid cols-3">
-          <article class="card">
-            <h3>LK‑Infomarkt</h3>
-            <p>Fragt Mitschülerinnen und Mitschüler aus den LKs direkt: Inhalte, Arbeitsaufwand, Tipps. Kurzform‑Panels pro Fach, moderiert und offen für eure Fragen.</p>
-          </article>
-          <article class="card">
-            <h3>LK‑Materialpool</h3>
-            <p>Beispielaufgaben und (anonymisierte) Beispielklausuren – zentral abrufbar. Qualitätssicherung durch Fachlehrkräfte und Jahrgangs‑Tutorium.</p>
-          </article>
-          <article class="card">
-            <h3>Transparenz & Fairness</h3>
-            <p>Klare Hinweise zu Anforderungen, Bewertung und Umfang – damit Entscheidungen einfacher und sicherer werden.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="konferenz">
-      <div class="container">
-        <h2>Was macht die Schulkonferenz?</h2>
-        <p class="desc">Hier werden die wichtigsten Entscheidungen der Schule getroffen – mit eurer Stimme.</p>
-        <div class="grid cols-3">
-          <article class="card">
-            <h3>Vertretung</h3>
-            <p>Vier Schülerinnen und Schüler sitzen neben Eltern- und Lehrervertretung in der Schulkonferenz und bringen eure Perspektive ein.</p>
-          </article>
-          <article class="card">
-            <h3>Berichten</h3>
-            <p>Nach jeder Sitzung möchten wir euch – abgestimmt mit allen Beteiligten – per Teams‑Post über Beschlüsse und nächste Schritte informieren.</p>
-          </article>
-          <article class="card">
-            <h3>Rückkanal</h3>
-            <p>Vorab planen wir, eure Anliegen über Umfragen und Sprechzeiten zu sammeln, damit eure Ideen unmittelbar in die Sitzung einfließen.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="hygiene">
-      <div class="container">
-        <h2>Hygieneartikel – unkompliziert & verlässlich</h2>
-        <div class="kpis" aria-label="Ziele in Zahlen">
-          <div class="kpi"><div>Aktuell verfügbare Boxen</div><b>1</b><div><small>(oft leer)</small></div></div>
-          <div class="kpi"><div>Ziel pro Etage</div><b>≥ 1</b><div><small>verlässlich aufgefüllt</small></div></div>
-          <div class="kpi"><div>Monatsbudget</div><b>≈ 40 €</b><div><small>über Spandauer Jugendjury</small></div></div>
-        </div>
-        <div class="card" style="margin-top:14px">
-          <p style="margin:0">Wir möchten die Aufstellung und verlässliche Auffüllung gemeinsam mit dem Sozialteam koordinieren. Meldet euch gern, wenn etwas fehlt – das möchten wir schnell zusammen lösen.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sport">
-      <div class="container">
-        <h2>Sportturniere – fair & spaßig</h2>
-        <p class="desc">Gemeinsam mit der Fachschaft Sport möchten wir auf bewährten Formaten aufbauen und sie weiterentwickeln.</p>
-        <div class="grid cols-3">
-          <article class="card"><h3>Planung</h3><p>Geplant: rechtzeitig kommunizierte Termine, klare Regeln und Schieds‑Guides.</p></article>
-          <article class="card"><h3>Teams</h3><p>Geplant: ausgewogene Gruppen, Anmelde‑Slots und Nachrücklisten für volle Felder.</p></article>
-          <article class="card"><h3>Feedback</h3><p>Geplant: kurze Umfragen nach jedem Turnier – wir verbessern, was euch wichtig ist.</p></article>
+            <p>Schnelle Umfragen und offene Ohren für eure Ideen.</p>
+          </button>
         </div>
       </div>
     </section>
@@ -313,24 +238,90 @@
       </div>
     </section>
 
-    <section class="section faq" id="faq">
-      <div class="container">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Wie wird über die Schulkonferenz berichtet?</summary>
-          <p>Geplant sind Teams‑Posts mit kurzen Zusammenfassungen der Beschlüsse – abgestimmt mit allen beteiligten Gremien.</p>
-        </details>
-        <details>
-          <summary>Wie wird der LK‑Materialpool organisiert?</summary>
-          <p>Vorgesehen ist ein Material-Upload über betreute Ordner; Freigabe erst nach Sichtung durch Fachlehrkräfte, anschließend zentraler Zugriff.</p>
-        </details>
-        <details>
-          <summary>Wer füllt die Hygieneartikel‑Boxen nach?</summary>
-          <p>Geplant ist eine Koordination durch Team Johann in Zusammenarbeit mit dem Sozialteam; die Finanzierung soll über die Spandauer Jugendjury laufen.</p>
-        </details>
-      </div>
-    </section>
   </main>
+
+  <template data-goal-template="feste">
+    <h2>Feste &amp; Partys</h2>
+    <p>Wir möchten mit dem Stadtteilzentrum Kladow (YOLO) und engagierten Klassenräten enger zusammenarbeiten, um <strong>zusätzliche Partys</strong> für die Mittel- und Oberstufe zu ermöglichen.</p>
+    <p>Beim großen Jubiläumsfest wollen wir frühzeitig Feedback einsammeln, damit Deko, Musik und Aktivitäten wirklich euren Wünschen entsprechen. Dazu planen wir eine offene Ideenrunde und transparente Budgets.</p>
+  </template>
+
+  <template data-goal-template="lk">
+    <h2>LK Börse</h2>
+    <p>Mit einer erweiterten LK-Börse möchten wir Entscheidungen zur Kurswahl leichter machen.</p>
+    <div class="grid cols-3">
+      <article class="card">
+        <h3>LK‑Infomarkt</h3>
+        <p>Panels mit Oberstufenschülerinnen und -schülern beantworten eure Fragen zu Workload, Prüfungen und Lernmaterialien.</p>
+      </article>
+      <article class="card">
+        <h3>LK‑Materialpool</h3>
+        <p>Ein zentraler Ordner sammelt Beispielaufgaben und anonymisierte Klausuren – qualitätsgesichert mit Fachlehrkräften.</p>
+      </article>
+      <article class="card">
+        <h3>Transparenz &amp; Fairness</h3>
+        <p>Klare Infos zu Anforderungen und Bewertungsmaßstäben sorgen dafür, dass jede Wahl auf verlässlichen Fakten beruht.</p>
+      </article>
+    </div>
+  </template>
+
+  <template data-goal-template="konferenz">
+    <h2>Schulkonferenz transparent machen</h2>
+    <p>Vier Schülerinnen und Schüler vertreten euch in der Schulkonferenz – und wir möchten ihre Arbeit sichtbar machen.</p>
+    <div class="grid cols-3">
+      <article class="card">
+        <h3>Vertretung</h3>
+        <p>Wir koordinieren uns mit allen Delegierten, damit eure Perspektive konsequent eingebracht wird.</p>
+      </article>
+      <article class="card">
+        <h3>Berichten</h3>
+        <p>Nach jeder Sitzung gibt es Teams-Posts mit Beschlüssen, offenen Fragen und den nächsten Schritten.</p>
+      </article>
+      <article class="card">
+        <h3>Rückkanal</h3>
+        <p>Vorab sammeln wir Anliegen über Umfragen, Teams und Sprechzeiten – damit nichts verloren geht.</p>
+      </article>
+    </div>
+  </template>
+
+  <template data-goal-template="hygiene">
+    <h2>Hygieneartikel auf Mädchentoiletten</h2>
+    <div class="kpis" aria-label="Ziele in Zahlen">
+      <div class="kpi"><div>Aktuell verfügbare Boxen</div><b>1</b><div><small>(oft leer)</small></div></div>
+      <div class="kpi"><div>Ziel pro Etage</div><b>≥ 1</b><div><small>verlässlich aufgefüllt</small></div></div>
+      <div class="kpi"><div>Monatsbudget</div><b>≈ 40 €</b><div><small>über die Spandauer Jugendjury und den Förderverein</small></div></div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <p style="margin:0">Wir koordinieren die Aufstellung und Auffüllung gemeinsam mit dem Sozialteam. Die Finanzierung sichern wir über die Spandauer Jugendjury und den Förderverein. Meldet euch gern, wenn etwas fehlt – wir kümmern uns kurzfristig darum.</p>
+    </div>
+  </template>
+
+  <template data-goal-template="sport">
+    <h2>Sportturniere</h2>
+    <p>Sport lebt von Fairness und Spaß. Wir bauen auf erfolgreichen Turnieren auf und entwickeln sie mit euch weiter.</p>
+    <div class="grid cols-3">
+      <article class="card"><h3>Planung</h3><p>Rechtzeitig kommunizierte Termine, klare Regeln und Schieds-Guides sorgen für Orientierung.</p></article>
+      <article class="card"><h3>Teams</h3><p>Ausgewogene Gruppen, Anmelde-Slots und Nachrücklisten halten die Turniere spannend.</p></article>
+      <article class="card"><h3>Feedback</h3><p>Nach jedem Turnier fragen wir euch nach Verbesserungswünschen und setzen sie um.</p></article>
+    </div>
+  </template>
+
+  <template data-goal-template="mitsprache">
+    <h2>Mitsprache stärken</h2>
+    <p>Wir möchten zuhören, bevor Entscheidungen fallen. Deshalb setzen wir auf schnelle, unkomplizierte Wege für euer Feedback.</p>
+    <ul>
+      <li>Regelmäßige Kurz-Umfragen zu aktuellen Themen.</li>
+      <li>Sprechzeiten in den Pausen und digitale Sprechstunden auf Teams.</li>
+      <li>Transparente Rückmeldungen darüber, was mit euren Ideen passiert.</li>
+    </ul>
+  </template>
+
+  <div class="goal-overlay" data-goal-overlay hidden aria-hidden="true">
+    <div class="goal-overlay__card" role="dialog" aria-modal="true" aria-labelledby="goal-overlay-title">
+      <button class="goal-overlay__close" type="button" data-overlay-close aria-label="Overlay schließen">×</button>
+      <div class="goal-overlay__body" id="goal-overlay-content"></div>
+    </div>
+  </div>
 
   <footer>
     <div class="container">
@@ -353,6 +344,80 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
+
+  const overlay = document.querySelector('[data-goal-overlay]');
+  const overlayBody = overlay?.querySelector('.goal-overlay__body');
+  const goalTemplates = new Map();
+  let lastTrigger = null;
+
+  document.querySelectorAll('template[data-goal-template]').forEach((template) => {
+    const key = template.dataset.goalTemplate;
+    if(key){
+      goalTemplates.set(key, template);
+    }
+  });
+
+  const openGoal = (goal) => {
+    if(!overlay || !overlayBody){
+      return;
+    }
+    const template = goalTemplates.get(goal);
+    if(!template){
+      return;
+    }
+    overlayBody.innerHTML = '';
+    overlayBody.appendChild(template.content.cloneNode(true));
+    const heading = overlayBody.querySelector('h2');
+    if(heading){
+      heading.id = 'goal-overlay-title';
+    }
+    overlay.removeAttribute('hidden');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.setProperty('overflow', 'hidden');
+    const closeBtn = overlay.querySelector('[data-overlay-close]');
+    closeBtn?.focus();
+  };
+
+  const closeGoal = () => {
+    if(!overlay || !overlayBody){
+      return;
+    }
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('hidden', '');
+    overlayBody.innerHTML = '';
+    document.body.style.removeProperty('overflow');
+    if(lastTrigger && typeof lastTrigger.focus === 'function'){
+      lastTrigger.focus();
+    }
+    lastTrigger = null;
+  };
+
+  const goalTriggers = document.querySelectorAll('[data-goal]');
+  goalTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      if(links && links.classList.contains('is-open')){
+        links.classList.remove('is-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }
+      lastTrigger = trigger;
+      openGoal(trigger.dataset.goal);
+    });
+  });
+
+  if(overlay){
+    overlay.addEventListener('click', (event) => {
+      if(event.target === overlay || event.target.hasAttribute('data-overlay-close')){
+        closeGoal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape' && overlay && overlay.getAttribute('aria-hidden') === 'false'){
+      closeGoal();
+    }
+  });
 </script>
 </body>
 </html>
